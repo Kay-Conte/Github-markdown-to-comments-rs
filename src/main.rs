@@ -50,12 +50,14 @@ async fn generate_file(input: PathBuf) {
 
 #[tokio::main]
 async fn main() {
-    print!("Enter the path of your github markdown file: ");
+    print!("Drag or enter the path of your github markdown file: ");
     io::stdout().flush().unwrap();
 
     let input = get_input().await;
 
     generate_file(PathBuf::from(&input)).await;
 
-    println!("Generated \"output.txt\" file in the root directory");
+    println!("Generated \"output.txt\" file in the root directory, press enter to continue...");
+
+    let _input = get_input().await;
 }
